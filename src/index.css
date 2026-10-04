@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-zinc-950 text-zinc-50 antialiased overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-zinc-900/60 backdrop-blur-xl border border-white/10;
+  }
+  .card-glow {
+    @apply relative;
+  }
+  .card-glow::before {
+    content: '';
+    @apply absolute inset-0 -z-10 rounded-3xl bg-accent opacity-20 blur-xl transition-opacity duration-500;
+  }
+  .card-glow:hover::before {
+    @apply opacity-40;
+  }
+}
